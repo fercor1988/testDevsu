@@ -21,13 +21,14 @@ public class Rest_Controller {
     @RequestMapping(value = "/{name}", method = RequestMethod.GET, headers = "Accept=application/json")
     public List<ObjMessage> hello(HttpServletRequest request, @PathVariable String name) {
         String host = request.getRemoteHost();
+        host = host + " " + request.getRemoteUser();
         List<ObjMessage> listOfMessaje = new ArrayList<ObjMessage>();
         listOfMessaje = createObjMessageList(name, host);
         return listOfMessaje;
     }
 
     public List<ObjMessage> createObjMessageList(String name, String host) {
-        ObjMessage datatest = new ObjMessage("Hello " + name + " from " + host);
+        ObjMessage datatest = new ObjMessage("Hello " + name + " from  " + host);
         List<ObjMessage> listOfCountries = new ArrayList<ObjMessage>();
         listOfCountries.add(datatest);
         return listOfCountries;
