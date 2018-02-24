@@ -21,7 +21,7 @@ public class Rest_Controller {
     @RequestMapping(value = "/{name}", method = RequestMethod.GET, headers = "Accept=application/json")
     public List<ObjMessage> hello(HttpServletRequest request, @PathVariable String name) {
         String host = request.getRemoteHost();
-        host = host + " " + request.getRemoteUser();
+        host = host + " - " + request.getRemoteUser();
         List<ObjMessage> listOfMessaje = new ArrayList<ObjMessage>();
         listOfMessaje = createObjMessageList(name, host);
         return listOfMessaje;
